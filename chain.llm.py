@@ -3,8 +3,28 @@ from langchain_openai import ChatOpenAI
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
 def generate_terraform(requirement):
-    prompt = f"Create Terraform code for: {requirement}"
+    prompt = f"""
+    
+Role:
+Act as a devops engineer.
+
+Task:
+Create Terraform code for:
+{requirement}
+
+Constraints:
+- Use best practices
+- Enable versioning if applicable
+- Follow secure defaults
+
+Output:
+- Only Terraform code
+- No explanation
+"""
+
     return llm.invoke(prompt).content
+
+
 
 def validate_terraform(code):
     prompt = f"Validate this Terraform code and suggest fixes:\n{code}"
