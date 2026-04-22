@@ -1,0 +1,6 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+terraform.tfvars
+terraform-provider-aws_v6.41.0_x5.exe
